@@ -25,6 +25,7 @@ import Newsletter from './components/Newsletter';
 import Footer from './components/Footer';
 import Login from './components/LogIn';
 
+
 const App = () => {
   // mobile nav state
   const [navMobile, setNavMobile] = useState(false);
@@ -37,30 +38,31 @@ const App = () => {
   });
 
   return (
-    <div className='overflow-hidden'>
-      <Header setNavMobile={setNavMobile} />
-      <Hero />
-      {/* mobile nav */}
-      <div
-        className={`${
-          navMobile ? 'right-0' : '-right-full'
-        } fixed z-10 top-0 h-full transition-all duration-200`}
-      >
-        <NavMobile setNavMobile={setNavMobile} />
+    <Router>
+      <div className='overflow-hidden'>
+        <Header setNavMobile={setNavMobile} />
+        <Hero />
+        {/* mobile nav */}
+        <div
+          className={`${
+            navMobile ? 'right-0' : '-right-full'
+          } fixed z-10 top-0 h-full transition-all duration-200`}
+        >
+          <NavMobile setNavMobile={setNavMobile} />
+        </div>
+        <Stats />
+        <Why />
+        <Calculate />
+        <Trade />
+        <Features />
+        <Newsletter />
+        <Footer />
+        <Login />
+        <Routes>
+          <Route path = "/"></Route>
+        </Routes>
       </div>
-      <Stats />
-      <Why />
-      <Calculate />
-      <Trade />
-      <Features />
-      <Newsletter />
-      <Footer />
-      <Login />
-      <Routes>
-        <Route path = "/"></Route>
-      </Routes>
-
-    </div>
+    </Router>
   );
 };
 
